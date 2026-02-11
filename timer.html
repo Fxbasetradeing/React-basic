@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+  <style>
+    body {
+      font-family: roboto, Arial, Helvetica, sans-serif;
+      display: grid;
+      justify-content: center;
+      text-align: center;
+      margin: 100px;
+    }
+
+    .container {
+      align-items: center;
+      margin: 20px;
+      background-color: azure;
+      box-shadow: rgba(0, 0 0, 0);
+    }
+
+    .buttons {
+      margin: 15px;
+    }
+
+    .buttons button {
+      padding: 10px 25px;
+      background-color: red;
+      font-weight: 650;
+      font-size: 17px;
+      border: none;
+      border-radius: 7px;
+    }
+    .time {
+      color: brown;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="time">Timer</h1>
+    <div id="timer">00 : 00 : 00</div>
+    <div class="buttons">
+    <button id="start">Start</button>
+    <button id="restart">Restart</button>
+    </div>
+  </div>
+
+  
+  <script>
+
+    document.getElementById('time').
+    addEventListener('click', () => {
+      if (time.innerHTML === 'Timer') {
+        time.innerHTML = 'countdown';
+        time.classList.add('time');
+      } else {
+        time.innerHTML = 'Timer';
+        time.classList.remove('time');
+      }
+    });
+
+    let [hours, minutes, seconds] = [0, 0, 0];
+
+
+    document.getElementById('timer');
+
+    let isAuto = false;
+    let intervalKey;
+
+    function countdown() {
+      seconds ++;
+       if (seconds === 60) {
+        seconds = 0;
+        minutes++
+
+        if (minutes === 60) {
+          minutes = 0;
+          hours++;
+        }
+       }
+       let h = `${hours <10 ? '0' + hours:hours}`
+       let m = `${minutes < 10? '0' + minutes:minutes}`
+       let s = `${seconds < 10? '0' + seconds:seconds}`
+
+       timer.innerText = `${h} : ${m} : ${s}`
+
+
+    }
+    document.getElementById('start').
+    addEventListener('click', () => {
+      if (!isAuto) {
+        intervalKey = setInterval(countdown, 1000);
+        isAuto = true;
+        event.target.innerText = 'Stop';
+      } else {
+      clearInterval(intervalKey);
+      event.target.innerText = 'Start'
+      isAuto = false;
+      };
+    });
+
+    document.getElementById('restart').
+    addEventListener('click', () => {
+      [hours, minutes, seconds] = [0, 0, 0];
+      timer.innerText = "00 : 00 : 00";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: grid;
+      margin: 0;
+
+    }
+
+    #popup {
+      display: grid;
+    }
+  </style>
+</head>
+<body>
+  <div id="popup" style="position:fixed; top: 50%;
+  left:50%; transform:translate(-50%,-50%);
+  background:pink; padding:20px;">
+  <p>Will you be my valentine?</p>
+  <button onclick="alert('fuck')">Yes</button>
+  <button id="no"
+  style="position:absolute;">No</button>
+
+  <script>
+    document.getElementById('no').
+    addEventListener('click', ()=> {
+      this.style.top = Math.random()*200+
+      '20px';
+
+      this.style.left=Math.random()*200+'px';
+    });
+  </script>
+  </div>
+</body>
+</html>
