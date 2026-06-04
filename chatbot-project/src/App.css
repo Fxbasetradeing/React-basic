@@ -1,0 +1,21 @@
+
+.header-text{
+  align-self: center;
+  font-weight: bold;
+  font-size: 19px;
+  height: 10px
+}
+     
+
+      .app-container {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+     
+      

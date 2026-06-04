@@ -91,7 +91,7 @@
     document.getElementById('start').
     addEventListener('click', () => {
       if (!isAuto) {
-        intervalKey = setInterval(countdown, 1000);
+        intervalKey = setInterval(countdown, 100);
         isAuto = true;
         event.target.innerText = 'Stop';
       } else {
